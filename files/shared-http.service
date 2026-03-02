@@ -1,0 +1,12 @@
+[Unit]
+Description=Servidor HTTP Python compartiendo NFS
+After=network.target autofs.service
+Requires=autofs.service
+
+[Service]
+ExecStart=/usr/bin/python3 -m http.server 8080 --directory /mnt/shared
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

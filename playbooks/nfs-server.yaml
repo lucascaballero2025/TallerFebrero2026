@@ -35,6 +35,14 @@
       service: nfs
       state: enabled
       permanent: true
+      inmediate: true 
+
+
+  - name: NFS enabled in firewalld
+    ansible.posix.firewalld:
+      service: nfs
+      state: enabled
+      permanent: true
       immediate: true
 
 

@@ -38,6 +38,19 @@
       state: started
       enabled: true
 
+  - name: copy service systemd
+    ansible.builtin.copy:
+      src: ../files/shared/http.service
+    notify: reload systemd
+
+
+  - name: activate and run service HTTP
+    ansible.builtin.systemd:
+      name: shared-http
+      state: started
+      enabled: yes
+
+
   handlers:
 
    - name: Restart autofs
