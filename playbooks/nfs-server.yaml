@@ -35,7 +35,7 @@
       service: nfs
       state: enabled
       permanent: true
-      inmediate: true 
+      immediate: true 
 
 
   - name: NFS enabled in firewalld
