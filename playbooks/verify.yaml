@@ -4,14 +4,14 @@
   become: true
   tasks:
     
-    - name: "TEST: Verificar que el login de root por SSH esté deshabilitado"
+    - name: "Verificar que el login de root por SSH esté deshabilitado"
       ansible.builtin.command: grep "^PermitRootLogin no" /etc/ssh/sshd_config
       register: ssh_check
       failed_when: ssh_check.rc != 0
       changed_when: false
 
     
-    - name: "TEST: Verificar que NFS Server esté activo"
+    - name: "Verificar que NFS Server esté activo"
       ansible.builtin.systemd:
         name: nfs-server
       register: nfs_service
@@ -19,7 +19,7 @@
       failed_when: nfs_service.status.ActiveState != "active"
 
     
-    - name: "TEST: Forzar acceso al montaje y verificar NFS"
+    - name: "Forzar acceso al montaje y verificar NFS"
       ansible.builtin.shell: |
         ls /mnt/shared
         mount | grep nfs4
@@ -29,7 +29,7 @@
       changed_when: false
 
    
-    - name: "TEST: Verificar respuesta del servidor HTTP (Puerto 8080)"
+    - name: "Verificar respuesta del servidor HTTP (Puerto 8080)"
       ansible.builtin.uri:
         url: http://localhost:8080/README-NFS.txt
         return_content: yes
@@ -39,4 +39,4 @@
 
     - name: Mostrar resultado final
       ansible.builtin.debug:
-        msg: "¡Todos los tests pasaron correctamente en {{ inventory_hostname }}!"
+        msg: "los test pasaron correctamente con exito {{ inventory_hostname }}!"
