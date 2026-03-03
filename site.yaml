@@ -1,0 +1,18 @@
+---
+
+ - name: "ejecutar playbooks"
+   hosts: all
+   gather_facts: yes
+   tasks:
+     - name: "validar conexion"
+       ping:
+
+         # - name: "aplicar hardening"
+         # import_playbook: playbooks/hardening.yaml
+
+
+ - name: "configurar servidor nfs"
+   import_playbook: playbooks/nfs-server.yaml
+
+ - name: "configurar cliente nfs y servicio web"
+   import_playbook: playbooks/nfs-client.yaml

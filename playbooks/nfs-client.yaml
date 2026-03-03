@@ -43,7 +43,7 @@
       src: ../files/shared-http.service
       dest: /etc/systemd/system/shared-http.service
       mode: '0644'
-    notify: reload systemd
+    notify: reload http
 
 
   - name: activate and run service HTTP
@@ -59,7 +59,11 @@
      ansible.builtin.systemd_service:
        name: autofs
        state: restarted
-
-
+  
+   - name: reload http
+     ansible.builtin.systemd_service:
+       name: server http
+       state: restarted
+  
 
      
