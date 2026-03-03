@@ -11,7 +11,7 @@ ubuntu02,Ubuntu 24.04,192.168.10.22,Cliente NFS
 
 Topología del Laboratorio
 
-[INSERTAR AQUÍ IMAGEN O DIAGRAMA DE LA TOPOLOGÍA]
+<img width="398" height="366" alt="image" src="https://github.com/user-attachments/assets/06fa10cb-bb7b-4985-b2e2-25d68b9a07fc" />
 
 Hostname,SO,IP,Rol
 nfs01,CentOS Stream 9,[192.168.10.11 192.168.10.12],Servidor NFS Principal 
