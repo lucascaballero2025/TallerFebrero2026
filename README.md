@@ -34,29 +34,22 @@ ansible-playbook -i inventory/hosts.ini playbooks/nfs-client.yml
 Cómo verificar (Evidencia funcional)
 Servidor NFS (nfs01 - CentOS)Verificar servicio nfs-server activo:Bashsystemctl is-active nfs-server
 
-
-[INSERTAR CAPTURA DE PANTALLA AQUÍ]
-
 Verificar directorio exportado:Bashexportfs -v
-[INSERTAR CAPTURA DE PANTALLA AQUÍ]
 
 Verificar reglas de firewall:Bashfirewall-cmd --list-services | egrep 'nfs|mountd|rpc-bind'
-[INSERTAR CAPTURA DE PANTALLA AQUÍ]
+
+<img width="914" height="164" alt="image" src="https://github.com/user-attachments/assets/91539fe0-3c03-4d74-a395-4ce7be869e8f" />
 
 Cliente NFS (app01 - Ubuntu)Verificar servicio autofs activo:Bashsystemctl is-active autofs
-[INSERTAR CAPTURA DE PANTALLA AQUÍ]
 
 Verificar montaje automático:Bashls /mnt/shared
 mount | grep /mnt/shared
 
-
-[INSERTAR CAPTURA DE PANTALLA AQUÍ]
-
 Servicio Web (app01 - Ubuntu)Verificar estado del servicio Web:Bashsystemctl status shared-http --no-pager
-[INSERTAR CAPTURA DE PANTALLA AQUÍ]
 
 Verificar acceso HTTP:Bashcurl http://localhost:8080/README-NFS.txt
-[INSERTAR CAPTURA DE PANTALLA AQUÍ]
+
+<img width="1275" height="389" alt="image" src="https://github.com/user-attachments/assets/ffefa4f2-5aba-4f3d-a9a5-13630bf95081" />
 
 
 Consideraciones de IAG Para este trabajo se utilizó Inteligencia Artificial Generativa (IAG) para la creación de la estructura del README y validación de comandos.Prompts: Generame una estructura para un readme con el archivo pdf que te acabo de pasar para yo rellenar con los datos y capturas correctas.
